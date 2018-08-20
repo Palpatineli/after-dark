@@ -1,0 +1,17 @@
+body > header {
+    display: flex;
+    align-items: baseline;
+    h1.title {
+        width: 50%;
+        font-size: 3.5em;
+        padding-top: 3.5em;
+        padding-bottom: 3.5em;
+    }
+    nav {
+        width: 50%;
+        [itemprop="url"] {
+            font-size: 1em;
+            padding-right: 2em;
+        }
+    }
+}

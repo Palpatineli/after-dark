@@ -1,2 +1,47 @@
-@import "vendor";
-@import "theme";
+@import "reset_all";
+@import "color";
+@import "typography";
+@import "post";
+@import "header";
+@import "about";
+
+@keyframes intro {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+main {
+    animation: intro 0.3s both;
+    animation-delay: 0.15s;
+}
+
+@media screen and (min-width: 768px) {
+    html { font-size: 100%; }
+    .container { max-width: 50rem; margin: auto; }
+}
+
+body {
+    background-color: map-get($misty-colors, "background");
+    padding-top: 2em;
+    width: 100%;
+}
+
+ul.tags {
+    padding-left: 2em;
+    li {
+        display: inline;
+        padding-right: 1em;
+    }
+}
+
+header.not-found {
+    display: block;
+    text-align: center;
+    h1, h2, img {
+        display: block;
+        text-align: center;
+        margin: auto;
+    }
+    h1 { font-size: 8em; }
+    img { padding-top: 2em; }
+}

@@ -1,4 +1,5 @@
 {% import "post_macros.html" as post_macros %}
+{% import "google-font.html" as font_macros %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,53 +16,59 @@
         <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml") }}">
       {% endif %}
 
+      <link rel="icon" type="img/png" href="{{ get_url(path="img/site-logo.png", trailing_slash=false) }}">
+
       {% block css %}
           <link rel="stylesheet" href="{{ get_url(path="site.css", trailing_slash=false) }}">
       {% endblock css %}
+
+      <style>
+          {% block font %}
+            {{ font_macros::set_fonts() }}
+          {% endblock font %}
+      </style>
 
       {% block extra_head %}
       {% endblock extra_head %}
     </head>
 
-    <body class="hack dark main container">
+    <body class="main container">
         {% block content %}
             {% block header %}
-                {% if config.extra.after_dark_menu %}
+                {% if config.extra.menu %}
                     <header>
+                        <h1 class="title">{% block title %}{{ config.title }}{% endblock title %}</h1>
                         <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
-                        {% for item in config.extra.after_dark_menu %}
+                        {% for item in config.extra.menu %}
                             <a itemprop="url"
                                class="{% if item.url | replace(from="$BASE_URL", to=config.base_url) == current_url %}active{% endif %}"
                                href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}">
                                 <span itemprop="name">{{ item.name }}
                                 </span></a>
                         {% endfor %}
+                        <span>
+                            {% if config.extra.network.github %}
+                            <a href="{{ config.extra.network.github }}"><img src="{{ get_url(path="img/Git-Icon-Black.svg", trailing_slash=false) }}/" alt="My Github repositories" height="16px"></a>
+                            {% endif %}
+                            {% if config.extra.network.linkedin %}
+                            <a href="{{ config.extra.network.linkedin }}"><img src="{{ get_url(path="img/linkedin.svg", trailing_slash=false) }}/" alt="My Linkedin profile" height="16px"></a>
+                            {% endif %}
+                            {% if config.extra.network.researchgate %}
+                            <a href="{{ config.extra.network.researchgate }}"><img src="{{ get_url(path="img/researchgate.svg", trailing_slash=false) }}/" alt="My Researchgate profile" height="16px"></a>
+                            {% endif %}
+                        </span>
                         </nav>
                     </header>
                 {% endif %}
             {% endblock header %}
 
+            {% block extra_nav %}
+            {% endblock extra_nav %}
+
             <main>
-                {% if config.extra.after_dark_title %}
-                    <header>
-                        <h1>{{ config.extra.after_dark_title }}</h1>
-                    </header>
-                {% endif %}
-                {% for page in paginator.pages %}
+                {% for page in section.pages %}
                     {{ post_macros::page_in_list(page=page) }}
                 {% endfor %}
-
-                <nav>
-                  <p>
-                    {% if paginator.previous %}
-                      <a href="{{ paginator.previous }}">&laquo; Previous</a> |
-                    {% endif %}
-                    <span>Page {{ paginator.current_index }} of {{ paginator.pagers | length }}</span>
-                    {% if paginator.next %}
-                      | <a href="{{ paginator.next }}">Next &raquo;</a>
-                    {% endif %}
-                  </p>
-                </nav>
             </main>
         {% endblock content %}
     </body>

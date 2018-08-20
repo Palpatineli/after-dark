@@ -6,9 +6,8 @@
 <article itemscope itemtype="http://schema.org/BlogPosting">
     <header>
         <h2 itemprop="headline">{{ page.title }}</h2>
-        <span class="post_info dim">{{ post_macros::meta(page=page) }}</span>
     </header>
-    <div itemprop="articleBody">
+    <div itemprop="articleBody", class="about">
       {{ page.content | safe }}
     </div>
 </article>

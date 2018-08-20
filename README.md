@@ -49,7 +49,7 @@ as it only works for non-paginated taxonomies by default.
 Set a field in `extra` with a key of `after_dark_menu`:
 
 ```toml
-after_dark_menu = [
+menu = [
     {url = "$BASE_URL", name = "Home"},
     {url = "$BASE_URL/categories", name = "Categories"},
     {url = "$BASE_URL/tags", name = "Tags"},

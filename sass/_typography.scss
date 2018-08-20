@@ -1,0 +1,62 @@
+@import "color";
+
+$font-color: map-get($misty-colors, "foreground");
+
+body {
+    text-rendering: optimizeLegibility;
+    font-variant-ligatures: common-ligatures;
+    font-family: 'Montserrat', sans-serif;
+    color: $font-color;
+    font-size: 100%;
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Cormorant', serif;
+}
+
+h1 { font-size: 2.25em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.3125em; }
+h4 { font-size: 1.125em; }
+h5 { font-size: 1em; }
+
+p {
+    text-align: left;
+    margin-bottom: 1; 
+}
+
+.indent p+p {
+    text-indent: 2;
+    margin-top: -0.5;
+}
+
+$link-color: map-get($misty-colors, "secondary");
+$active-color: map-get($misty-colors, "accent");
+
+a {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    color: $link-color;
+    &:hover, &:focus { text-decoration-style: solid; }
+    &:active, &:visited { color: $active-color; }
+}
+
+$emph-color: map-get($misty-colors, "secondary");
+
+strong {
+    color: $emph-color;
+    font-weight: normal;
+}
+
+em {
+    font-style: italic;
+    color: $emph-color;
+}
+
+code, pre {
+    font-family: monospace, serif;
+    font-size: 1;
+}
+
+q, blockquote { quotes: "\201C" "\201D" "\2018" "\2019"; }

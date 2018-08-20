@@ -8,7 +8,7 @@
     <h1>Tags</h1>
 
     {% if terms %}
-        <ul>
+        <ul class="tags">
             {% for term in terms %}
                 <li><a href="{{ term.permalink }}">{{ term.name }}</a> ({{ term.pages | length }})</li>
             {% endfor %}
