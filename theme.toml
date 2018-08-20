@@ -1,18 +1,11 @@
-name = "after-dark"
-description = "A robust, elegant dark theme"
+name = "breeze"
+description = "A light theme"
 license = "MIT"
-homepage = "https://github.com/Keats/after-dark"
+homepage = "https://github.com/Palpatineli/breeze-theme.git"
 min_version = "0.4.0"
-demo = "https://gutenberg-after-dark.netlify.com"
 
 [extra]
 
-
 [author]
-name = "Vincent Prouillet"
-homepage = "https://vincent.is"
-
-[original]
-author =  "comfusion"
-homepage = "https://git.habd.as/comfusion/after-dark/"
-repo = "https://git.habd.as/comfusion/after-dark/"
+name = "Keji Li"
+homepage = "https://keji.li"

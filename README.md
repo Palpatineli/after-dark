@@ -1,6 +1,4 @@
-# after-dark
-
-![after-dark screenshot](https://github.com/Keats/after-dark/blob/master/screenshot.png?raw=true)
+# breeze
 
 ## Contents
 
@@ -14,21 +12,15 @@ First download this theme to your `themes` directory:
 
 ```bash
 $ cd themes
-$ git clone https://github.com/Keats/after-dark.git
+$ git clone https://github.com/Palpatineli/breeze-theme.git
 ```
 and then enable it in your `config.toml`:
 
 ```toml
-theme = "after-dark"
+theme = "breeze"
 ```
 
-This theme requires your index section (`content/_index.md`) to be paginated to work:
-
-```toml
-paginate_by = 5
-```
-
-The posts should therefore be in directly under the `content` folder.
+The posts should be in directly under the `content` folder.
 
 The theme requires tags and categories taxonomies to be enabled in your `config.toml`:
 
@@ -61,9 +53,19 @@ If you put `$BASE_URL` in a url, it will automatically be replaced by the actual
 site URL.
 
 ### Title
-The site title is shown on the homepage. As it might be different from the `<title>`
-element that the `title` field in the config represents, you can set the `after_dark_title`
-instead.
+The site title is shown on the homepage.
+
+### Network
+Optionally network icons and links can be added in config
+
+Currently github, linkedin, and research gate are supported
+
+```toml
+[extra.network]
+"github" = "https://github.com/Palpatineli"
+"linkedin" = "https://www.linkedin.com/in/keji-li-64080620/"
+"researchgate" = "https://www.researchgate.net/profile/Keji_Li2"
+```
 
 ## Original
-This template is based on the Hugo template https://github.com/comfusion/after-dark
+This template is based on the after-dark template by Keats himself https://github.com/Keats/after-dark.git
